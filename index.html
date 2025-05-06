@@ -15,10 +15,6 @@
     }
 
     .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       text-align: center;
       padding: 60px 20px;
       background-color: #e9f5e3;
@@ -33,14 +29,14 @@
     .hero p {
       font-size: 1.2rem;
       max-width: 600px;
-      margin-bottom: 30px;
+      margin: 0 auto 30px;
     }
 
     .form-container {
-      width: 100%;
-      max-width: 500px;
       background: #fff;
       padding: 30px;
+      max-width: 500px;
+      margin: 0 auto;
       border-radius: 10px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
@@ -64,11 +60,6 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #43a047;
     }
 
     .footer {
@@ -81,20 +72,20 @@
 </head>
 <body>
 
-  <section class="hero">
-    <h1>Grow Better Buds at Home</h1>
-    <p>Download your free **Beginner Grow Checklist** — everything you need to start your first cannabis grow, step-by-step, even in small spaces.</p>
+  <div class="hero">
+    <h1>Get Your Free Grow Checklist</h1>
+    <p>Everything you need to confidently start your first cannabis grow — no fluff, no guesswork.</p>
     <div class="form-container">
       <form action="https://formspree.io/f/mgvkkdpn" method="POST">
         <input type="email" name="email" placeholder="Enter your email" required>
-        <textarea name="message" placeholder="Any questions or comments? (optional)"></textarea>
-        <button type="submit">Get My Free Checklist</button>
+        <textarea name="message" placeholder="Any comments or questions? (optional)"></textarea>
+        <button type="submit">Send It!</button>
       </form>
     </div>
-  </section>
+  </div>
 
   <div class="footer">
-    &copy; 2025 Home Grow Guide. All rights reserved.
+    &copy; 2025 Home Grow Guide
   </div>
 
 </body>
