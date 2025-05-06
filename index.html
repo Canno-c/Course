@@ -23,10 +23,25 @@
             flex-direction: column;
             color: white;
             font-family: 'Lora', serif;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         h1 {
             font-size: 3rem;
             margin-bottom: 20px;
+            animation: slideUp 1.5s ease-in-out;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: slideUp 1.5s ease-in-out;
         }
         .cta-button {
             background-color: #6dbf4d;
@@ -36,10 +51,14 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
         .cta-button:hover {
             background-color: #5a9f44;
+            transform: scale(1.1);
+        }
+        .cta-button:active {
+            transform: scale(1);
         }
     </style>
 </head>
