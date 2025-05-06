@@ -7,35 +7,93 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to right, #f4f9f4, #e1f7e7);
-  margin: 0;
-  padding: 0;
-  color: #2e2e2e;
-}
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #f4f9f4, #e1f7e7);
+      margin: 0;
+      padding: 0;
+      color: #2e2e2e;
+    }
 
-.hero h1 {
-  font-size: 2.8rem;
-  color: #2e7d32;
-}
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #e9f5e3;
+    }
 
-button {
-  background-color: #2e7d32;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
+    .hero img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
 
-button:hover {
-  background-color: #1b5e20;
-  transform: scale(1.03);
-}
+    .hero h1 {
+      font-size: 2.8rem;
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
 
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px;
+      max-width: 500px;
+      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 15px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #2e7d32;
+      color: white;
+      font-size: 1.2rem;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #1b5e20;
+      transform: scale(1.03);
+    }
+
+    ul {
+      text-align: left;
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #333;
+      padding-left: 20px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      padding: 30px;
+    }
   </style>
 </head>
 <body>
 
   <div class="hero">
-    <img src="https://images.unsplash.com/photo-1615800001975-17fd5d9c09be?auto=format&fit=crop&w=1200&q=80" alt="Cannabis Grow" style="max-width: 100%; border-radius: 10px; margin-bottom: 30px;">
-
+    <img src="https://images.unsplash.com/photo-1615800001975-17fd5d9c09be?auto=format&fit=crop&w=1200&q=80" alt="Cannabis Grow">
     <h1>Get Your Free Grow Checklist</h1>
     <p>Everything you need to confidently start your first cannabis grow — no fluff, no guesswork.</p>
     <div class="form-container">
@@ -44,6 +102,12 @@ button:hover {
         <textarea name="message" placeholder="Any comments or questions? (optional)"></textarea>
         <button type="submit">Send It!</button>
       </form>
+      <ul>
+        <li>✔️ Step-by-step beginner instructions</li>
+        <li>✔️ What gear you actually need (and what’s a waste)</li>
+        <li>✔️ Lighting, soil, and water tips that work</li>
+        <li>✔️ Indoor or balcony grow — no problem</li>
+      </ul>
     </div>
   </div>
 
