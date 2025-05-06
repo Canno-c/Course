@@ -12,6 +12,7 @@
             padding: 0;
             background-color: #f4f4f4;
             text-align: center;
+            color: #333;
         }
         .thank-you-message {
             padding: 50px;
@@ -20,10 +21,16 @@
             max-width: 600px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         h1 {
             font-family: 'Lora', serif;
             margin-bottom: 20px;
+            color: #6dbf4d;
         }
         .cta-button {
             background-color: #6dbf4d;
@@ -33,10 +40,14 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
         .cta-button:hover {
             background-color: #5a9f44;
+            transform: scale(1.1);
+        }
+        .cta-button:active {
+            transform: scale(1);
         }
     </style>
 </head>
