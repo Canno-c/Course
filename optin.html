@@ -11,48 +11,64 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            color: #333;
         }
         .form-container {
             max-width: 600px;
             margin: 50px auto;
-            padding: 20px;
+            padding: 40px;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         h2 {
             font-family: 'Lora', serif;
-            text-align: center;
             margin-bottom: 20px;
+            color: #6dbf4d;
         }
         .form-input {
             width: 100%;
-            padding: 12px;
-            font-size: 1rem;
+            padding: 15px;
+            font-size: 1.2rem;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            border-color: #6dbf4d;
+            outline: none;
         }
         .form-button {
             background-color: #6dbf4d;
             color: white;
-            padding: 12px;
+            padding: 15px;
             font-size: 1.2rem;
             border: none;
             border-radius: 5px;
             width: 100%;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
         .form-button:hover {
             background-color: #5a9f44;
+            transform: scale(1.05);
+        }
+        .form-button:active {
+            transform: scale(1);
         }
     </style>
 </head>
 <body>
     <div class="form-container">
         <h2>Enter Your Email to Download Your Free Checklist</h2>
-        <form action="https://formspree.io/f/xrbqqypz" method="POST">
+        <form action="https://formspree.io/f/your-form-id" method="POST">
             <input type="email" name="email" class="form-input" placeholder="Enter your email" required>
             <button type="submit" class="form-button">Get My Checklist</button>
         </form>
