@@ -18,6 +18,14 @@
       max-width: 800px;
       margin: auto;
       box-sizing: border-box;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .hero {
       text-align: center;
@@ -35,6 +43,13 @@
       margin: auto;
       margin-bottom: 30px;
     }
+    .hero img {
+      margin-top: 30px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
     .cta-button {
       background-color: #2e7d32;
       color: white;
@@ -43,15 +58,24 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .cta-button:hover {
+      background-color: #256928;
+      transform: scale(1.03);
     }
     h2 {
       color: #2e7d32;
       margin-bottom: 15px;
     }
     ul {
-      padding-left: 20px;
+      padding-left: 1.2em;
       list-style-type: disc;
-      margin-top: 0;
+      margin: 0;
+    }
+    ul li {
+      margin-bottom: 10px;
+      line-height: 1.5;
     }
     .testimonials, .faq, form {
       background: #fff;
@@ -89,6 +113,12 @@
       width: 100%;
       max-width: 500px;
     }
+    .plant-divider {
+      background: url('https://cdn.pixabay.com/photo/2021/09/23/10/19/cannabis-6649379_1280.jpg') no-repeat center;
+      background-size: contain;
+      height: 120px;
+      margin-top: -20px;
+    }
   </style>
 </head>
 <body>
@@ -96,7 +126,10 @@
     <h1>Grow Cannabis at Home Like a Pro</h1>
     <p>Download your FREE Beginner Grow Checklist and avoid the 5 biggest mistakes that ruin first-time grows.</p>
     <a href="#optin"><button class="cta-button">Yes, Send Me the Checklist →</button></a>
+    <img src="https://cdn.pixabay.com/photo/2023/03/06/01/10/cannabis-7831962_960_720.jpg" alt="Flowering Cannabis Plant">
   </div>
+
+  <div class="plant-divider"></div>
 
   <div class="section">
     <h2>Why Most Beginner Grows Fail Before They Even Start</h2>
@@ -148,5 +181,20 @@
   </div>
 
   <div class="footer">&copy; 2025 Home Grow Guide</div>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
