@@ -152,6 +152,22 @@
       height: 520px;
       margin-top: -20px;
     }
+    .quiz-result-card {
+  margin-top: 30px;
+  padding: 25px;
+  background-color: #e9f5e3;
+  border: 2px solid #2e7d32;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  color: #2e7d32;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
   </style>
 </head>
 <body>
@@ -186,6 +202,35 @@
       <li>✔️ Grow indoors, outdoors, or on your balcony</li>
     </ul>
   </div>
+  <div class="section" id="quiz">
+  <h2>Find Out Which Seed Type Is Right for You</h2>
+  <form id="seed-quiz">
+    <label>1. How much space do you have?</label><br>
+    <input type="radio" name="space" value="small" required> Small (closet or cabinet)<br>
+    <input type="radio" name="space" value="large"> Medium/Large (tent or room)<br><br>
+
+    <label>2. How much time can you spend tending your plants?</label><br>
+    <input type="radio" name="time" value="low" required> 15 min/day or less<br>
+    <input type="radio" name="time" value="high"> 30+ min/day is fine<br><br>
+
+    <label>3. What’s your experience level?</label><br>
+    <input type="radio" name="skill" value="new" required> I’m new to growing<br>
+    <input type="radio" name="skill" value="experienced"> I’ve grown plants before<br><br>
+
+    <label>4. What matters more to you?</label><br>
+    <input type="radio" name="goal" value="easy" required> Simple and fast harvest<br>
+    <input type="radio" name="goal" value="quality"> Higher yield and potency<br><br>
+
+    <label>5. Do you need to keep things discreet?</label><br>
+    <input type="radio" name="stealth" value="yes" required> Yes, smaller plants preferred<br>
+    <input type="radio" name="stealth" value="no"> Not a concern<br><br>
+
+    <button type="submit" class="cta-button">Get My Recommendation</button>
+  </form>
+
+  <div id="quiz-result" class="quiz-result-card" style="display:none;"></div>
+</div>
+
 
   <div class="section testimonials">
     <h2>What Other Growers Are Saying</h2>
@@ -279,6 +324,35 @@
         countdownEl.innerText = "Expired";
       }
     }, 1000);
+    document.getElementById("seed-quiz").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const form = new FormData(event.target);
+  const space = form.get("space");
+  const time = form.get("time");
+  const skill = form.get("skill");
+  const goal = form.get("goal");
+  const stealth = form.get("stealth");
+
+  let score = 0;
+
+  if (space === "small") score++;
+  if (time === "low") score++;
+  if (skill === "new") score++;
+  if (goal === "easy") score++;
+  if (stealth === "yes") score++;
+
+  const resultEl = document.getElementById("quiz-result");
+
+  if (score >= 3) {
+    resultEl.innerHTML = `<span style="font-size: 2rem;">🌱</span><br><strong>Autoflower</strong> is your best match! Autoflowers are great for smaller spaces, lower maintenance, and quicker harvests — perfect for newer growers.`;
+  } else {
+    resultEl.innerHTML = `<span style="font-size: 2rem;">🌞</span><br><strong>Photoperiod</strong> seeds are a better fit! They offer bigger yields, more control, and are ideal if you have the space, time, and experience.`;
+  }
+
+  resultEl.style.display = "block";
+});
+
   </script>
 </body>
 </html>
