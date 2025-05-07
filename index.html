@@ -21,7 +21,7 @@
       text-align: left;
       opacity: 0;
       transform: translateY(50px);
-      transition: all 0.8s ease;
+      transition: all 2.0s ease;
     }
     .section.visible {
       opacity: 1;
@@ -84,6 +84,39 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
       box-sizing: border-box;
     }
+    .testimonial-carousel {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      margin: 30px 0;
+      position: relative;
+      min-height: 100px;
+    }
+    .testimonial-slide {
+      flex: 0 0 100%;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #333;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      position: absolute;
+      width: 100%;
+    }
+    .testimonial-slide.active {
+      opacity: 1;
+      position: relative;
+    }
+    .countdown {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #c62828;
+      margin: 20px auto;
+    }
     .testimonials p, .faq ul li, .section p {
       line-height: 1.6;
       font-size: 1.05rem;
@@ -114,9 +147,9 @@
       max-width: 500px;
     }
     .plant-divider {
-      background: url('https://cdn.pixabay.com/photo/2021/09/23/10/19/cannabis-6649379_1280.jpg') no-repeat center;
+      background: url('https://cdn.pixabay.com/photo/2021/04/30/07/28/cannabis-6222624_960_720.png') no-repeat center;
       background-size: contain;
-      height: 420px;
+      height: 120px;
       margin-top: -20px;
     }
   </style>
@@ -126,10 +159,14 @@
     <h1>Grow Cannabis at Home Like a Pro</h1>
     <p>Download your FREE Beginner Grow Checklist and avoid the 5 biggest mistakes that ruin first-time grows.</p>
     <a href="#optin"><button class="cta-button">Yes, Send Me the Checklist →</button></a>
-    <img src="https://cdn.pixabay.com/photo/2021/09/23/10/19/cannabis-6649379_1280.jpg" alt="Flowering Cannabis Plant">
+    <img src="https://cdn.pixabay.com/photo/2023/03/06/01/10/cannabis-7831962_960_720.jpg" alt="Flowering Cannabis Plant">
   </div>
 
   <div class="plant-divider"></div>
+
+  <div class="section countdown">
+    ⏳ Offer expires in <span id="countdown-timer"></span>
+  </div>
 
   <div class="section">
     <h2>Why Most Beginner Grows Fail Before They Even Start</h2>
@@ -153,8 +190,17 @@
 
   <div class="section testimonials">
     <h2>What Other Growers Are Saying</h2>
-    <p>“I finally got a harvest after 2 failed tries – thanks to this checklist!” – Jamie, CA</p>
-    <p>“It was clear, easy, and actually saved me money. Can’t wait for the full course.” – Mike, CO</p>
+    <div class="testimonial-carousel">
+      <div class="testimonial-slide active">
+        <p>“This checklist saved me from making costly mistakes in my first grow!” – Sarah, NY</p>
+      </div>
+      <div class="testimonial-slide">
+        <p>“Highly recommend this guide to anyone starting their home grow. Very helpful!” – Dave, TX</p>
+      </div>
+      <div class="testimonial-slide">
+        <p>“I finally got a harvest after 2 failed tries – thanks to this checklist!” – Jamie, CA</p>
+      </div>
+    </div>
   </div>
 
   <div class="section">
@@ -195,6 +241,36 @@
     sections.forEach(section => {
       observer.observe(section);
     });
+
+    // Testimonial Carousel Logic
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.testimonial-slide');
+
+    setInterval(() => {
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add('active');
+    }, 3000);
+
+    // Countdown Timer Logic
+    const countdownTarget = new Date("2025-06-01T00:00:00").getTime();
+    const countdownEl = document.getElementById("countdown-timer");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countdownTarget - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (distance < 0) {
+        countdownEl.innerText = "Expired";
+      }
+    }, 1000);
   </script>
 </body>
 </html>
