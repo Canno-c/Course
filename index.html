@@ -45,9 +45,11 @@
     }
     h2 {
       color: #2e7d32;
+      margin-bottom: 15px;
     }
     ul {
       padding-left: 20px;
+      list-style-type: disc;
     }
     .testimonials, .faq {
       background: #fff;
@@ -61,6 +63,21 @@
       font-size: 0.9rem;
       color: #777;
       padding: 30px;
+    }
+    form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+    input[type="email"] {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
     }
   </style>
 </head>
@@ -115,7 +132,7 @@
   <div class="section" id="optin">
     <h2>Get Your Free Checklist</h2>
     <form action="https://formspree.io/f/mgvkkdpn" method="POST">
-      <input type="email" name="email" placeholder="Your email address" required style="width: 100%; padding: 15px; margin-bottom: 15px;">
+      <input type="email" name="email" placeholder="Your email address" required>
       <button type="submit" class="cta-button">Send Me the Checklist</button>
     </form>
   </div>
