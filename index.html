@@ -411,19 +411,6 @@ showQuestion();
   </div>
 </div>
 
-<script>
-  let current = 0;
-  const slides = document.querySelectorAll('.testimonial-slide');
-
-  setInterval(() => {
-    slides[current].classList.remove('active');
-    slides[current].style.opacity = '0';
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-    slides[current].style.opacity = '1';
-  }, 4000);
-</script>
-
 
   <div class="section" style="padding: 60px 20px; max-width: 800px; margin: auto; font-family: 'Roboto', sans-serif; text-align: center;">
   <h2 style="font-size: 2rem; color: #2e7d32;">🎁 Bonus Download: Grow Tracker & Feeding Schedule</h2>
