@@ -510,35 +510,5 @@ showQuestion();
         countdownEl.innerText = "Expired";
       }
     }, 1000);
-    document.getElementById("seed-quiz").addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  const form = new FormData(event.target);
-  const space = form.get("space");
-  const time = form.get("time");
-  const skill = form.get("skill");
-  const goal = form.get("goal");
-  const stealth = form.get("stealth");
-
-  let score = 0;
-
-  if (space === "small") score++;
-  if (time === "low") score++;
-  if (skill === "new") score++;
-  if (goal === "easy") score++;
-  if (stealth === "yes") score++;
-
-  const resultEl = document.getElementById("quiz-result");
-
-  if (score >= 3) {
-    resultEl.innerHTML = '<span style="font-size: 2rem;">🌱</span><br><strong>Autoflower</strong> is your best match! Autoflowers are great for smaller spaces, lower maintenance, and quicker harvests — perfect for newer growers.';
-  } else {
-    resultEl.innerHTML = '<span style="font-size: 2rem;">🌞</span><br><strong>Photoperiod</strong> seeds are a better fit! They offer bigger yields, more control, and are ideal if you have the space, time, and experience.';
-  }
-
-  resultEl.style.display = "block";
-});
-
-  </script>
 </body>
 </html>
