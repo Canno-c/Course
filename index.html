@@ -390,29 +390,38 @@ showQuestion();
 
 
 
-  <div class="section testimonials">
-    <h2>What Other Growers Are Saying</h2>
-    <div class="testimonial-carousel">
-      <div class="testimonial-slide active">
-        <p>“This checklist saved me from making costly mistakes in my first grow!” – Sarah, NY</p>
-      </div>
-      <div class="testimonial-slide">
-        <p>“Highly recommend this guide to anyone starting their home grow. Very helpful!” – Dave, TX</p>
-      </div>
-      <div class="testimonial-slide">
-        <p>“123” – Jamie, CA</p>
-        </div>
-        <div class="testimonial-slide">
-        <p>“321” – Sarah, NY</p>
-      </div>
-      <div class="testimonial-slide">
-        <p>“sdd!” – Dave, TX</p>
-      </div>
-      <div class="testimonial-slide">
-        <p>“gh” – Jamie, CA</p>
-      </div>
+ <div class="section testimonials" style="padding: 60px 20px; max-width: 800px; margin: auto; font-family: 'Roboto', sans-serif;">
+  <h2 style="text-align: center; font-size: 2rem; color: #2e7d32;">🌟 What New Growers Are Saying</h2>
+
+  <div class="testimonial-carousel" style="margin-top: 40px; position: relative; overflow: hidden; height: 150px;">
+    <div class="testimonial-slide active" style="position: absolute; width: 100%; opacity: 1; transition: opacity 0.5s; text-align: center;">
+      <p style="font-size: 1.2rem; font-style: italic; margin: 0;">“This checklist saved me from killing another plant. First time I actually saw buds form!”</p>
+      <p style="font-size: 0.95rem; color: #777;">— Jamie, CO</p>
+    </div>
+    <div class="testimonial-slide" style="position: absolute; width: 100%; opacity: 0; transition: opacity 0.5s; text-align: center;">
+      <p style="font-size: 1.2rem; font-style: italic; margin: 0;">“I wasted so much money on useless gear before. This guide cut through all the BS.”</p>
+      <p style="font-size: 0.95rem; color: #777;">— Mike, CA</p>
+    </div>
+    <div class="testimonial-slide" style="position: absolute; width: 100%; opacity: 0; transition: opacity 0.5s; text-align: center;">
+      <p style="font-size: 1.2rem; font-style: italic; margin: 0;">“I’ve already recommended it to 3 friends. If you’re new, just start with this.”</p>
+      <p style="font-size: 0.95rem; color: #777;">— Tasha, WA</p>
     </div>
   </div>
+</div>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.testimonial-slide');
+
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    slides[current].style.opacity = '0';
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+    slides[current].style.opacity = '1';
+  }, 4000);
+</script>
+
 
   <div class="section">
     <h2>Coming Soon: The Full Beginner Course</h2>
