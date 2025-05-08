@@ -340,7 +340,7 @@ function showQuestion() {
     btn.onclick = () => selectAnswer(a.value);
     options.appendChild(btn);
   });
-  document.getElementById('progress').style.width = ${(currentQuestion / quizData.length) * 100}%;
+  document.getElementById('progress').style.width = `${(currentQuestion / quizData.length) * 100}%`;
 }
 
 function selectAnswer(value) {
