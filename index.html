@@ -482,6 +482,18 @@ showQuestion();
     sections.forEach(section => {
       observer.observe(section);
     });
+    
+    // Safe testimonial carousel
+let testimonialIndex = 0;
+const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+
+if (testimonialSlides.length > 0) {
+  setInterval(() => {
+    testimonialSlides[testimonialIndex].classList.remove('active');
+    testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
+    testimonialSlides[testimonialIndex].classList.add('active');
+  }, 4000);
+}
 
 
     // Countdown Timer Logic
