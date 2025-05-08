@@ -504,7 +504,7 @@ showQuestion();
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      countdownEl.innerText = ${days}d ${hours}h ${minutes}m ${seconds}s;
+      countdownEl.innerText = '${days}d ${hours}h ${minutes}m ${seconds}s';
 
       if (distance < 0) {
         countdownEl.innerText = "Expired";
@@ -531,9 +531,9 @@ showQuestion();
   const resultEl = document.getElementById("quiz-result");
 
   if (score >= 3) {
-    resultEl.innerHTML = <span style="font-size: 2rem;">🌱</span><br><strong>Autoflower</strong> is your best match! Autoflowers are great for smaller spaces, lower maintenance, and quicker harvests — perfect for newer growers.;
+    resultEl.innerHTML = '<span style="font-size: 2rem;">🌱</span><br><strong>Autoflower</strong> is your best match! Autoflowers are great for smaller spaces, lower maintenance, and quicker harvests — perfect for newer growers.';
   } else {
-    resultEl.innerHTML = <span style="font-size: 2rem;">🌞</span><br><strong>Photoperiod</strong> seeds are a better fit! They offer bigger yields, more control, and are ideal if you have the space, time, and experience.;
+    resultEl.innerHTML = '<span style="font-size: 2rem;">🌞</span><br><strong>Photoperiod</strong> seeds are a better fit! They offer bigger yields, more control, and are ideal if you have the space, time, and experience.';
   }
 
   resultEl.style.display = "block";
