@@ -202,34 +202,140 @@
       <li>✔️ Grow indoors, outdoors, or on your balcony</li>
     </ul>
   </div>
-  <div class="section" id="quiz">
-  <h2>Find Out Which Seed Type Is Right for You</h2>
-  <form id="seed-quiz">
-    <label>1. How much space do you have?</label><br>
-    <input type="radio" name="space" value="small" required> Small (closet or cabinet)<br>
-    <input type="radio" name="space" value="large"> Medium/Large (tent or room)<br><br>
-
-    <label>2. How much time can you spend tending your plants?</label><br>
-    <input type="radio" name="time" value="low" required> 15 min/day or less<br>
-    <input type="radio" name="time" value="high"> 30+ min/day is fine<br><br>
-
-    <label>3. What’s your experience level?</label><br>
-    <input type="radio" name="skill" value="new" required> I’m new to growing<br>
-    <input type="radio" name="skill" value="experienced"> I’ve grown plants before<br><br>
-
-    <label>4. What matters more to you?</label><br>
-    <input type="radio" name="goal" value="easy" required> Simple and fast harvest<br>
-    <input type="radio" name="goal" value="quality"> Higher yield and potency<br><br>
-
-    <label>5. Do you need to keep things discreet?</label><br>
-    <input type="radio" name="stealth" value="yes" required> Yes, smaller plants preferred<br>
-    <input type="radio" name="stealth" value="no"> Not a concern<br><br>
-
-    <button type="submit" class="cta-button">Get My Recommendation</button>
-  </form>
-
-  <div id="quiz-result" class="quiz-result-card" style="display:none;"></div>
+  
+  <!-- Autoflower vs Photoperiod Quiz -->
+<div class="quiz-container" id="quiz" style="max-width: 600px; margin: 40px auto; padding: 30px; background: #fff; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); font-family: 'Roboto', sans-serif;">
+  <div class="progress-bar" style="height: 10px; background: #c8e6c9; border-radius: 5px; margin-bottom: 20px; overflow: hidden;">
+    <div class="progress" id="progress" style="height: 100%; background: #4caf50; width: 0%; transition: width 0.3s;"></div>
+  </div>
+  <div id="question-container">
+    <div class="question" id="question" style="font-size: 1.2rem; margin-bottom: 20px;"></div>
+    <div class="options" id="options"></div>
+  </div>
+  <div class="result-card" id="result-card" style="text-align: center; padding: 30px; background: #e8f5e9; border-left: 5px solid #66bb6a; border-radius: 10px; margin-top: 30px; display: none;">
+    <h3 id="result-title" style="font-size: 1.6rem; color: #2e7d32;"></h3>
+    <p id="result-description"></p>
+    <button class="retake" onclick="restartQuiz()" style="margin-top: 20px; background: #2e7d32; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer;">🔁 Retake Quiz</button>
+  </div>
 </div>
+
+<script>
+const quizData = [
+  {
+    question: "What kind of grow space do you have?",
+    answers: [
+      { text: "A closet or small tent (under 4ft tall)", value: "auto" },
+      { text: "A decent-sized tent or room", value: "either" },
+      { text: "Outdoor grow with no height limits", value: "photo" }
+    ]
+  },
+  {
+    question: "How much time can you commit per week?",
+    answers: [
+      { text: "Less than 3 hours", value: "auto" },
+      { text: "3–6 hours", value: "either" },
+      { text: "I can spend time daily", value: "photo" }
+    ]
+  },
+  {
+    question: "How much experience do you have?",
+    answers: [
+      { text: "None, I’m brand new", value: "auto" },
+      { text: "A little — I’ve grown plants before", value: "either" },
+      { text: "I’ve grown cannabis at least once", value: "photo" }
+    ]
+  },
+  {
+    question: "How important are high yields to you?",
+    answers: [
+      { text: "Not that important — I’m here to learn", value: "auto" },
+      { text: "A decent harvest would be nice", value: "either" },
+      { text: "I want the biggest buds possible", value: "photo" }
+    ]
+  },
+  {
+    question: "How stealthy does your grow need to be?",
+    answers: [
+      { text: "Super stealth — no one can notice", value: "auto" },
+      { text: "A little stealthy", value: "either" },
+      { text: "I don’t care — bring on the jungle", value: "photo" }
+    ]
+  }
+];
+
+let currentQuestion = 0;
+let score = { auto: 0, photo: 0, either: 0 };
+
+function showQuestion() {
+  const q = quizData[currentQuestion];
+  document.getElementById('question').innerText = q.question;
+  const options = document.getElementById('options');
+  options.innerHTML = '';
+  q.answers.forEach((a) => {
+    const btn = document.createElement('button');
+    btn.innerText = a.text;
+    btn.style.display = 'block';
+    btn.style.width = '100%';
+    btn.style.padding = '12px 20px';
+    btn.style.marginBottom = '10px';
+    btn.style.border = '1px solid #ccc';
+    btn.style.borderRadius = '6px';
+    btn.style.background = '#e8f5e9';
+    btn.style.cursor = 'pointer';
+    btn.style.transition = 'background 0.3s';
+    btn.onmouseover = () => btn.style.background = '#c8e6c9';
+    btn.onmouseout = () => btn.style.background = '#e8f5e9';
+    btn.onclick = () => selectAnswer(a.value);
+    options.appendChild(btn);
+  });
+  document.getElementById('progress').style.width = `${(currentQuestion / quizData.length) * 100}%`;
+}
+
+function selectAnswer(value) {
+  score[value]++;
+  currentQuestion++;
+  if (currentQuestion < quizData.length) {
+    showQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  document.getElementById('question-container').style.display = 'none';
+  const resultCard = document.getElementById('result-card');
+  let result = Object.keys(score).reduce((a, b) => score[a] > score[b] ? a : b);
+
+  let title = '';
+  let desc = '';
+  if (result === 'auto') {
+    title = "🌱 Autoflower is Your Best Match!";
+    desc = "Fast, low-maintenance, and perfect for small spaces or stealthy grows. Great for beginners!";
+  } else if (result === 'photo') {
+    title = "🌞 Photoperiod is Your Best Match!";
+    desc = "Bigger yields, more control, and great if you have time and space to train your plants.";
+  } else {
+    title = "⚖️ Either Could Work for You!";
+    desc = "You’ve got flexibility — try an autoflower first, then level up to photoperiods later.";
+  }
+
+  document.getElementById('result-title').innerText = title;
+  document.getElementById('result-description').innerText = desc;
+  resultCard.style.display = 'block';
+  document.getElementById('progress').style.width = '100%';
+}
+
+function restartQuiz() {
+  currentQuestion = 0;
+  score = { auto: 0, photo: 0, either: 0 };
+  document.getElementById('question-container').style.display = 'block';
+  document.getElementById('result-card').style.display = 'none';
+  showQuestion();
+}
+
+showQuestion();
+</script>
+
 
 
   <div class="section testimonials">
