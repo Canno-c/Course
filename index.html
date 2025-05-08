@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/616/616408.png" type="image/png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Grow Checklist</title>
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/616/616408.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -22,7 +23,7 @@
       text-align: left;
       opacity: 0;
       transform: translateY(50px);
-      transition: all 2s ease;
+      transition: all 2.0s ease;
     }
     .section.visible {
       opacity: 1;
@@ -43,6 +44,13 @@
       max-width: 600px;
       margin: auto;
       margin-bottom: 30px;
+    }
+    .hero img {
+      margin-top: 30px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
     .cta-button {
       background-color: #2e7d32;
@@ -111,17 +119,15 @@
       color: #c62828;
       margin: 20px auto;
     }
+    .testimonials p, .faq ul li, .section p {
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
     .footer {
       text-align: center;
       font-size: 0.9rem;
       color: #777;
       padding: 30px;
-    }
-    .plant-divider {
-      background: url('https://images.unsplash.com/photo-1714078506638-fbc5a0cf2e0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fG1hcmlqdWFuYXxlbnwwfHwwfHx8MA%3D%3D') no-repeat center;
-      background-size: contain;
-      height: 520px;
-      margin-top: -20px;
     }
     form {
       display: flex;
@@ -142,45 +148,328 @@
       width: 100%;
       max-width: 500px;
     }
+    .plant-divider {
+      background: url('https://images.unsplash.com/photo-1714078506638-fbc5a0cf2e0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fG1hcmlqdWFuYXxlbnwwfHwwfHx8MA%3D%3D') no-repeat center;
+      background-size: contain;
+      height: 520px;
+      margin-top: -20px;
+    }
     .quiz-result-card {
-      margin-top: 30px;
-      padding: 25px;
-      background-color: #e9f5e3;
-      border: 2px solid #2e7d32;
-      border-radius: 10px;
-      font-size: 1.2rem;
-      color: #2e7d32;
-      text-align: center;
-      animation: fadeIn 1s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  margin-top: 30px;
+  padding: 25px;
+  background-color: #e9f5e3;
+  border: 2px solid #2e7d32;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  color: #2e7d32;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
   </style>
 </head>
 <body>
+  <div class="hero">
+    <h1>Grow Cannabis at Home Like a Pro</h1>
+    <p>Download your FREE Beginner Grow Checklist and avoid the 5 biggest mistakes that ruin first-time grows.</p>
+    <a href="#optin"><button class="cta-button">Yes, Send Me the Checklist →</button></a>
+  </div>
 
-  <!-- [Your existing content remains unchanged here up to testimonials...] -->
+  <div class="plant-divider"></div>
 
-  <div class="testimonial-carousel">
-    <div class="testimonial-slide active">
-      <p>“This checklist saved me from killing another plant. First time I actually saw buds form!”</p>
-      <p style="font-size: 0.95rem; color: #777;">— Jamie, CO</p>
+  <div class="section countdown">
+    ⏳ Offer expires in <span id="countdown-timer"></span>
+  </div>
+
+  <div class="section">
+    <h2>I’ve Been There Too...</h2>
+    <p>Growing cannabis at home should be simple. But with confusing info, overpriced gear, and YouTube rabbit holes, it’s easy to make mistakes that kill your grow before it begins. We’re here to fix that.</p>
+  </div>
+
+  <div class="section">
+    <h2>Nothing Helped...</h2>
+    <p>Like most new growers, I killed my first plant. Then I bought gear I didn’t need. It took two failed grows before I figured out what worked. That’s why I made this free checklist — to help you avoid my mistakes and grow confidently from day one.</p>
+  </div>
+
+  <div class="section" style="padding: 60px 20px; max-width: 800px; margin: auto; box-sizing: border-box; text-align: left; font-family: 'Roboto', sans-serif;">
+  <h2 style="color: #c62828; font-size: 2rem;">😵 Why Most Beginner Grows Fail Before They Even Start</h2>
+
+  <p style="font-size: 1.15rem; line-height: 1.7; margin-top: 20px;">
+    You’re not alone if you’ve ever felt overwhelmed trying to grow cannabis at home. It’s supposed to be simple... but the internet makes it feel like you need a PhD in horticulture, a $1000 setup, and 16 hours a day to succeed.
+  </p>
+
+  <div style="margin: 30px 0; padding: 20px; background: #ffebee; border-left: 5px solid #ef5350; border-radius: 8px;">
+    <ul style="list-style: none; padding-left: 0; font-size: 1.05rem;">
+      <li>❌ Conflicting advice on YouTube & forums</li>
+      <li>❌ Gear guides that push overpriced stuff you don’t need</li>
+      <li>❌ Dead plants and crispy leaves with no clear explanation</li>
+      <li>❌ Time wasted second-guessing every move</li>
+    </ul>
+  </div>
+
+  <p style="font-size: 1.1rem;">
+    That’s exactly why we made the <strong>Beginner Grow Checklist</strong> — to cut through the noise and get you growing with confidence.
+  </p>
+
+  <p style="font-size: 1.1rem; font-style: italic; color: #555;">No fluff. No hype. Just what works.</p>
+</div>
+
+
+  <div class="section" style="padding: 60px 20px; max-width: 800px; margin: auto; box-sizing: border-box; font-family: 'Roboto', sans-serif;">
+  <h2 style="color: #2e7d32; font-size: 2rem; text-align: center;">📋 What’s Inside the Checklist</h2>
+  <p style="text-align: center; font-size: 1.15rem; color: #444; max-width: 700px; margin: 20px auto 40px;">
+    This is the checklist we wish we had when we started. It’s not just a list — it’s a beginner’s map from seed to success.
+  </p>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+    <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+      <h3 style="color: #388e3c;">🌱 Step-by-Step Instructions</h3>
+      <p style="font-size: 1rem; line-height: 1.5;">Clear steps from setup to harvest — no guesswork, no fluff.</p>
     </div>
-    <div class="testimonial-slide">
-      <p>“I wasted so much money on useless gear before. This guide cut through all the BS.”</p>
-      <p style="font-size: 0.95rem; color: #777;">— Mike, CA</p>
+    <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+      <h3 style="color: #388e3c;">🧪 Gear You Actually Need</h3>
+      <p style="font-size: 1rem; line-height: 1.5;">Skip the upsells. We list only what works — budget-friendly and proven.</p>
     </div>
-    <div class="testimonial-slide">
-      <p>“I’ve already recommended it to 3 friends. If you’re new, just start with this.”</p>
-      <p style="font-size: 0.95rem; color: #777;">— Tasha, WA</p>
+    <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+      <h3 style="color: #388e3c;">💡 Light, Soil & Water Tips</h3>
+      <p style="font-size: 1rem; line-height: 1.5;">Dial in the three things your plant depends on to thrive — even in small spaces.</p>
+    </div>
+    <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+      <h3 style="color: #388e3c;">🏡 Indoor, Outdoor & Balcony Setups</h3>
+      <p style="font-size: 1rem; line-height: 1.5;">Grow wherever you are — even if you’ve just got a closet or a corner.</p>
     </div>
   </div>
 
-  <!-- Scripts -->
+  <p style="text-align: center; margin-top: 40px; font-size: 1.1rem;">
+    ✅ Built for total beginners. Loved by new growers in 17 states (and counting).
+  </p>
+</div>
+
+  
+ <div style="max-width: 700px; margin: 60px auto 30px; text-align: center; font-family: 'Roboto', sans-serif;">
+  <h2 style="color: #2e7d32; font-size: 2.2rem; margin-bottom: 10px;">🌿 Not Sure What to Grow?</h2>
+  <p style="font-size: 1.15rem; color: #444; line-height: 1.6;">
+    Take this quick 5-question quiz to find out whether you should start with <strong>Autoflower</strong> or <strong>Photoperiod</strong> seeds — based on your space, time, and goals.
+  </p>
+  <p style="font-size: 1rem; color: #666;">No email required. Just honest answers, and your best grow path. Let's do this 🌱</p>
+</div>
+ <!-- Autoflower vs Photoperiod Quiz -->
+<div class="quiz-container" id="quiz" style="max-width: 600px; margin: 40px auto; padding: 30px; background: #fff; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); font-family: 'Roboto', sans-serif;">
+  <div class="progress-bar" style="height: 10px; background: #c8e6c9; border-radius: 5px; margin-bottom: 20px; overflow: hidden;">
+    <div class="progress" id="progress" style="height: 100%; background: #4caf50; width: 0%; transition: width 0.3s;"></div>
+  </div>
+  <div id="question-container">
+    <div class="question" id="question" style="font-size: 1.2rem; margin-bottom: 20px;"></div>
+    <div class="options" id="options"></div>
+  </div>
+  <div class="result-card" id="result-card" style="text-align: center; padding: 30px; background: #e8f5e9; border-left: 5px solid #66bb6a; border-radius: 10px; margin-top: 30px; display: none;">
+    <h3 id="result-title" style="font-size: 1.6rem; color: #2e7d32;"></h3>
+    <p id="result-description"></p>
+    <button class="retake" onclick="restartQuiz()" style="margin-top: 20px; background: #2e7d32; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer;">🔁 Retake Quiz</button>
+  </div>
+</div>
+
+<script>
+const quizData = [
+  {
+    question: "What kind of grow space do you have?",
+    answers: [
+      { text: "A closet or small tent (under 4ft tall)", value: "auto" },
+      { text: "A decent-sized tent or room", value: "either" },
+      { text: "Outdoor grow with no height limits", value: "photo" }
+    ]
+  },
+  {
+    question: "How much time can you commit per week?",
+    answers: [
+      { text: "Less than 3 hours", value: "auto" },
+      { text: "3–6 hours", value: "either" },
+      { text: "I can spend time daily", value: "photo" }
+    ]
+  },
+  {
+    question: "How much experience do you have?",
+    answers: [
+      { text: "None, I’m brand new", value: "auto" },
+      { text: "A little — I’ve grown plants before", value: "either" },
+      { text: "I’ve grown cannabis at least once", value: "photo" }
+    ]
+  },
+  {
+    question: "How important are high yields to you?",
+    answers: [
+      { text: "Not that important — I’m here to learn", value: "auto" },
+      { text: "A decent harvest would be nice", value: "either" },
+      { text: "I want the biggest buds possible", value: "photo" }
+    ]
+  },
+  {
+    question: "How stealthy does your grow need to be?",
+    answers: [
+      { text: "Super stealth — no one can notice", value: "auto" },
+      { text: "A little stealthy", value: "either" },
+      { text: "I don’t care — bring on the jungle", value: "photo" }
+    ]
+  }
+];
+
+let currentQuestion = 0;
+let score = { auto: 0, photo: 0, either: 0 };
+
+function showQuestion() {
+  const q = quizData[currentQuestion];
+  document.getElementById('question').innerText = q.question;
+  const options = document.getElementById('options');
+  options.innerHTML = '';
+  q.answers.forEach((a) => {
+    const btn = document.createElement('button');
+    btn.innerText = a.text;
+    btn.style.display = 'block';
+    btn.style.width = '100%';
+    btn.style.padding = '12px 20px';
+    btn.style.marginBottom = '10px';
+    btn.style.border = '1px solid #ccc';
+    btn.style.borderRadius = '6px';
+    btn.style.background = '#e8f5e9';
+    btn.style.cursor = 'pointer';
+    btn.style.transition = 'background 0.3s';
+    btn.onmouseover = () => btn.style.background = '#c8e6c9';
+    btn.onmouseout = () => btn.style.background = '#e8f5e9';
+    btn.onclick = () => selectAnswer(a.value);
+    options.appendChild(btn);
+  });
+  document.getElementById('progress').style.width = `${(currentQuestion / quizData.length) * 100}%`;
+}
+
+function selectAnswer(value) {
+  score[value]++;
+  currentQuestion++;
+  if (currentQuestion < quizData.length) {
+    showQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  document.getElementById('question-container').style.display = 'none';
+  const resultCard = document.getElementById('result-card');
+  let result = Object.keys(score).reduce((a, b) => score[a] > score[b] ? a : b);
+
+  let title = '';
+  let desc = '';
+  if (result === 'auto') {
+    title = "🌱 Autoflower is Your Best Match!";
+    desc = "Fast, low-maintenance, and perfect for small spaces or stealthy grows. Great for beginners!";
+  } else if (result === 'photo') {
+    title = "🌞 Photoperiod is Your Best Match!";
+    desc = "Bigger yields, more control, and great if you have time and space to train your plants.";
+  } else {
+    title = "⚖️ Either Could Work for You!";
+    desc = "You’ve got flexibility — try an autoflower first, then level up to photoperiods later.";
+  }
+
+  document.getElementById('result-title').innerText = title;
+  document.getElementById('result-description').innerText = desc;
+  resultCard.style.display = 'block';
+  document.getElementById('progress').style.width = '100%';
+}
+
+function restartQuiz() {
+  currentQuestion = 0;
+  score = { auto: 0, photo: 0, either: 0 };
+  document.getElementById('question-container').style.display = 'block';
+  document.getElementById('result-card').style.display = 'none';
+  showQuestion();
+}
+
+showQuestion();
+</script>
+
+
+
+ <div class="section testimonials" style="padding: 60px 20px; max-width: 800px; margin: auto; font-family: 'Roboto', sans-serif;">
+  <h2 style="text-align: center; font-size: 2rem; color: #2e7d32;">🌟 What New Growers Are Saying</h2>
+
+  <div class="testimonial-carousel" style="margin-top: 40px; position: relative; overflow: hidden; height: 150px;">
+    <div class="testimonial-slide active" style="position: absolute; width: 100%; opacity: 1; transition: opacity 0.5s; text-align: center;">
+      <p style="font-size: 1.2rem; font-style: italic; margin: 0;">“This checklist saved me from killing another plant. First time I actually saw buds form!”</p>
+      <p style="font-size: 0.95rem; color: #777;">— Jamie, CO</p>
+    </div>
+    <div class="testimonial-slide" style="position: absolute; width: 100%; opacity: 0; transition: opacity 0.5s; text-align: center;">
+      <p style="font-size: 1.2rem; font-style: italic; margin: 0;">“I wasted so much money on useless gear before. This guide cut through all the BS.”</p>
+      <p style="font-size: 0.95rem; color: #777;">— Mike, CA</p>
+    </div>
+    <div class="testimonial-slide" style="position: absolute; width: 100%; opacity: 0; transition: opacity 0.5s; text-align: center;">
+      <p style="font-size: 1.2rem; font-style: italic; margin: 0;">“I’ve already recommended it to 3 friends. If you’re new, just start with this.”</p>
+      <p style="font-size: 0.95rem; color: #777;">— Tasha, WA</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.testimonial-slide');
+
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    slides[current].style.opacity = '0';
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+    slides[current].style.opacity = '1';
+  }, 4000);
+</script>
+
+
+  <div class="section" style="padding: 60px 20px; max-width: 800px; margin: auto; font-family: 'Roboto', sans-serif; text-align: center;">
+  <h2 style="font-size: 2rem; color: #2e7d32;">🎁 Bonus Download: Grow Tracker & Feeding Schedule</h2>
+
+  <p style="font-size: 1.15rem; color: #444; max-width: 700px; margin: 20px auto;">
+    When you grab the Beginner Checklist today, you'll also get our printable Grow Log & Feeding Chart — the exact template we use to track plants from sprout to harvest.
+  </p>
+
+  <div style="margin: 30px 0; padding: 20px; background: #e3f2fd; border-left: 5px solid #2196f3; border-radius: 8px;">
+    <ul style="list-style: none; padding-left: 0; font-size: 1.05rem; text-align: left; max-width: 600px; margin: auto;">
+      <li>📝 Log plant height, watering, nutrients & more</li>
+      <li>📅 Keep track of each stage with clarity</li>
+      <li>💡 Designed for beginner growers (zero guesswork)</li>
+    </ul>
+  </div>
+
+  <p style="font-size: 1.05rem; color: #555;">
+    Yours free when you download the checklist today.
+  </p>
+
+  <a href="#optin" style="display: inline-block; margin-top: 30px; padding: 15px 30px; background: #2196f3; color: #fff; font-size: 1.1rem; border-radius: 8px; text-decoration: none;">
+    📥 Send Me the Checklist + Bonus →
+  </a>
+</div>
+
+  <div class="section faq">
+    <h2>FAQ</h2>
+    <ul>
+      <li><strong>Is this legal in my area?</strong> – Please check your local laws. This guide is for educational purposes.</li>
+      <li><strong>Can I grow in a closet?</strong> – Yes! The checklist includes tips for micro-grows.</li>
+      <li><strong>Do I need expensive lights?</strong> – No. We recommend beginner-friendly options that work.</li>
+      <li><strong>Is this checklist really free?</strong> – 100%. Just enter your email and it’s yours.</li>
+    </ul>
+  </div>
+
+  <div class="section" id="optin">
+    <h2>Get Your Free Checklist</h2>
+    <form action="https://formspree.io/f/mgvkkdpn" method="POST">
+      <input type="email" name="email" placeholder="Your email address" required>
+      <button type="submit" class="cta-button">Send Me the Checklist</button>
+    </form>
+  </div>
+
+  <div class="footer">&copy; 2025 Home Grow Guide</div>
+
   <script>
-    // Section animation
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -190,35 +479,40 @@
       });
     }, { threshold: 0.1 });
 
-    sections.forEach(section => observer.observe(section));
+    sections.forEach(section => {
+      observer.observe(section);
+    });
 
-    // Testimonial carousel
-    let testimonialIndex = 0;
-    const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+    // Testimonial Carousel Logic
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.testimonial-slide');
 
-    setInterval(() => {
-      testimonialSlides[testimonialIndex].classList.remove('active');
-      testimonialSlides[testimonialIndex].style.opacity = '0';
-      testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
-      testimonialSlides[testimonialIndex].classList.add('active');
-      testimonialSlides[testimonialIndex].style.opacity = '1';
-    }, 4000);
+    let currentIndex = 0;
+setInterval(() => {
+  slides2[currentIndex].classList.remove('active');
+  currentIndex = (currentIndex + 1) % slides2.length;
+  slides2[currentIndex].classList.add('active');
+}, 3000);
 
-    // Countdown timer
+    // Countdown Timer Logic
     const countdownTarget = new Date("2025-06-01T00:00:00").getTime();
     const countdownEl = document.getElementById("countdown-timer");
 
     setInterval(() => {
       const now = new Date().getTime();
       const distance = countdownTarget - now;
+
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      countdownEl.innerText = distance < 0 ? "Expired" : `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      countdownEl.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (distance < 0) {
+        countdownEl.innerText = "Expired";
+      }
     }, 1000);
   </script>
-
 </body>
 </html>
